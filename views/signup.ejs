@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <%- include("nav")%>
+    <form action="/user/signup" method="post">
+        <center><br>
+            <input type="text" name="username" placeholder="username" class="border"><br><br>
+            <input type="text" name="password" placeholder="password" class="border"><br><br>
+            <select name="role" class="border">
+                <option value="user">user</option>    
+                <option value="admin">Admin</option>    
+            </select><br><br>
+            <!-- <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-" -->
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white border" style="padding: 10px;">sign up</button>
+        </center>
+    </form>
+</body>
+</html>

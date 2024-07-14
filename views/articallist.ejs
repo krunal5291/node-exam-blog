@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artical list</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .div{
+            border: 1px solid tomato;
+            width: 33.33%;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <%- include("nav")%>
+        <div class="container">
+            <div id="ui" style="display: flex;"></div>
+        </div>
+    </body>
+</body>
+
+    <script>
+        // console.log("a")
+            const display = (data)=>{
+                data.map((ele)=>{
+                    const title = document.createElement("h1")
+                    title.innerHTML=ele.title
+                    const artical = document.createElement("p")
+                    artical.innerHTML=ele.artical
+                    const category = document.createElement("h3")
+                    category.innerHTML=ele.category
+                    const img = document.createElement("img")
+                    img.src=ele.image
+                    const div = document.createElement("div")
+                    div.setAttribute("class","div")
+                    div.append(img,title,category,artical)
+                    document.getElementById("ui").append(div)
+                })
+            }
+
+            fetch("/blog/all")
+            .then((ele)=>ele.json())
+            .then((opt)=>display(opt))
+    </script>
+</html>
